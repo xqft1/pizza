@@ -1,20 +1,20 @@
-# 🍕 SATOPIZZA
+# Pizza
 
 **Turn SATO into PIZZA.**
 
-SATOPIZZA is a fully on-chain experiment that combines Bitcoin-inspired scarcity with a pizza-powered bonding curve.
+PIZZA is a fully on-chain experiment that combines Bitcoin-inspired scarcity with a pizza-powered bonding curve.
 
 Users contribute **SATO** through the **Pizza Oven** and receive freshly baked **PIZZA** according to a transparent mathematical issuance curve.
 
-## 🌐 Website
+## Website
 
 https://satopizza.xyz
 
 ---
 
-# 🍕 What Is SATOPIZZA?
+# What Is PIZZA?
 
-SATOPIZZA is an ERC-20 token deployed on Ethereum with a maximum supply of:
+PIZZA is an ERC-20 token deployed on Ethereum with a maximum supply of:
 
 **21,000,000 PIZZA**
 
@@ -26,7 +26,7 @@ Users send SATO into the Pizza Oven and receive PIZZA according to an on-chain i
 
 ---
 
-# 🔥 How Baking Works
+# How Baking Works
 
 1. Acquire SATO
 2. Visit the Pizza Oven
@@ -45,12 +45,12 @@ The oven never sleeps.
 
 ---
 
-# 📈 Supply
+# Supply
 
 | Metric            | Value                              |
 | ----------------- | ---------------------------------- |
 | Max Supply        | 21,000,000 PIZZA                   |
-| Initial Mint      | 100,000 PIZZA                      |
+| Initial Mint      | 100,000 PIZZA (sent to dead address|
 | Initial Purpose   | SATO/PIZZA Uniswap LP              |
 | Additional Supply | Minted only through the Pizza Oven |
 
@@ -64,9 +64,9 @@ No pre-mine beyond liquidity provisioning.
 
 ---
 
-# 🔒 Decentralization
+# Decentralization
 
-SATOPIZZA was designed to minimise trust requirements.
+PIZZA was designed to minimise trust requirements.
 
 ### Token Contract
 
@@ -88,7 +88,7 @@ All new PIZZA enters circulation through the public baking process defined by th
 
 ---
 
-# 🧾 Smart Contracts
+# Smart Contracts
 
 ## PIZZA Token
 
@@ -112,7 +112,7 @@ Receives contributed SATO and distributes rewards to liquidity providers.
 
 ---
 
-# 🍕 Why Pizza?
+# Why Pizza?
 
 Because every great cryptocurrency eventually discovers the true purpose of money:
 
@@ -120,13 +120,13 @@ Buying pizza.
 
 Bitcoin had Bitcoin Pizza Day.
 
-SATOPIZZA has an entire protocol dedicated to it.
+PIZZA has an entire protocol dedicated to it.
 
 ---
 
-# ⚠️ Disclaimer
+# Disclaimer
 
-SATOPIZZA is experimental software.
+PIZZA is experimental software.
 
 Nothing in this repository constitutes financial advice, investment advice, legal advice, dietary advice, or pizza advice.
 
@@ -134,7 +134,7 @@ Use at your own risk.
 
 ---
 
-## 🍕 Bake Responsibly
+## Bake Responsibly
 
 Website:
 
