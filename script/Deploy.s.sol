@@ -30,13 +30,9 @@ contract Deploy is Script {
             deployer
         );
 
-        PizzaOven oven = new PizzaOven(
-            SATO,
-            pizzaAddress,
-            address(distributor),
-            curveScale,
-            deployer
-        );
+        LpRewardDistributor distributor = new LpRewardDistributor(
+    SATO, lpToken, address(0x0000000000000000000000000000000000000001), vm.envAddress("PIZZA_SLICES"), deployer
+);
 
         pizza.grantRole(pizza.MINTER_ROLE(), address(oven));
 
