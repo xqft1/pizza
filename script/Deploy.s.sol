@@ -24,7 +24,10 @@ contract Deploy is Script {
 
         LpRewardDistributor distributor = new LpRewardDistributor(
             SATO,
-            lpToken
+            lpToken,
+            address(0x0000000000000000000000000000000000000001),
+            vm.envAddress("PIZZA_SLICES"),
+            deployer
         );
 
         PizzaOven oven = new PizzaOven(
