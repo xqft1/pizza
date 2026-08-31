@@ -18,13 +18,7 @@ contract CurvePreview is Script {
 
         uint256 curveScale = 1_000_000 ether;
 
-        PizzaOven oven = new PizzaOven(
-            dummySato,
-            address(pizza),
-            rewardReceiver,
-            curveScale,
-            dummyAdmin
-        );
+        PizzaOven oven = new PizzaOven(dummySato, address(pizza), rewardReceiver, curveScale, dummyAdmin);
 
         console2.log("Curve scale:", curveScale / 1e18, "SATO");
         console2.log("================================");
