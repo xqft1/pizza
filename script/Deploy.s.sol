@@ -23,21 +23,11 @@ contract Deploy is Script {
 
         Pizza pizza = Pizza(pizzaAddress);
 
-        LpRewardDistributor distributor = new LpRewardDistributor(
-            SATO,
-            lpToken,
-            address(0x0000000000000000000000000000000000000001),
-            pizzaSlices,
-            deployer
-        );
+       LpRewardDistributor distributor = new LpRewardDistributor(
+    SATO, lpToken, address(0x0000000000000000000000000000000000000001), pizzaSlices, deployer
+);
 
-        PizzaOven oven = new PizzaOven(
-            SATO,
-            pizzaAddress,
-            address(distributor),
-            curveScale,
-            deployer
-        );
+PizzaOven oven = new PizzaOven(SATO, pizzaAddress, address(distributor), curveScale, deployer);
 
         distributor.setOven(address(oven));
 
