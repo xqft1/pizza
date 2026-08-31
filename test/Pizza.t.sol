@@ -100,9 +100,8 @@ contract PizzaTest is Test {
 
         pizza = new Pizza(address(this));
 
-        distributor = new LpRewardDistributor(
-            address(sato), address(lp), address(0x1234), address(0x5678), address(this)
-        );
+        distributor =
+            new LpRewardDistributor(address(sato), address(lp), address(0x1234), address(0x5678), address(this));
 
         oven = new PizzaOven(address(sato), address(pizza), address(distributor), 1_000_000 ether, address(this));
 
