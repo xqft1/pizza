@@ -19,18 +19,12 @@ contract MockSato {
         balanceOf[to] += amount;
     }
 
-    function approve(address spender, uint256 amount)
-        external
-        returns (bool)
-    {
+    function approve(address spender, uint256 amount) external returns (bool) {
         allowance[msg.sender][spender] = amount;
         return true;
     }
 
-    function transfer(address to, uint256 amount)
-        external
-        returns (bool)
-    {
+    function transfer(address to, uint256 amount) external returns (bool) {
         require(balanceOf[msg.sender] >= amount, "no balance");
 
         balanceOf[msg.sender] -= amount;
@@ -39,10 +33,7 @@ contract MockSato {
         return true;
     }
 
-    function transferFrom(address from, address to, uint256 amount)
-        external
-        returns (bool)
-    {
+    function transferFrom(address from, address to, uint256 amount) external returns (bool) {
         require(balanceOf[from] >= amount, "no balance");
         require(allowance[from][msg.sender] >= amount, "no allowance");
 
@@ -66,18 +57,12 @@ contract MockLpToken {
         balanceOf[to] += amount;
     }
 
-    function approve(address spender, uint256 amount)
-        external
-        returns (bool)
-    {
+    function approve(address spender, uint256 amount) external returns (bool) {
         allowance[msg.sender][spender] = amount;
         return true;
     }
 
-    function transfer(address to, uint256 amount)
-        external
-        returns (bool)
-    {
+    function transfer(address to, uint256 amount) external returns (bool) {
         require(balanceOf[msg.sender] >= amount, "no balance");
 
         balanceOf[msg.sender] -= amount;
@@ -86,10 +71,7 @@ contract MockLpToken {
         return true;
     }
 
-    function transferFrom(address from, address to, uint256 amount)
-        external
-        returns (bool)
-    {
+    function transferFrom(address from, address to, uint256 amount) external returns (bool) {
         require(balanceOf[from] >= amount, "no balance");
         require(allowance[from][msg.sender] >= amount, "no allowance");
 
@@ -119,17 +101,12 @@ contract PizzaTest is Test {
         pizza = new Pizza(address(this));
 
         distributor = new LpRewardDistributor(
-            address(sato),
-            address(lp)
+            address(sato), address(lp), address(0x1234), address(0x5678), address(this)
         );
 
-        oven = new PizzaOven(
-            address(sato),
-            address(pizza),
-            address(distributor),
-            1_000_000 ether,
-            address(this)
-        );
+        oven = new PizzaOven(address(sato), address(pizza), address(distributor), 1_000_000 ether, address(this));
+
+        distributor.setOven(address(oven));
 
         pizza.grantRole(pizza.MINTER_ROLE(), address(oven));
 
@@ -141,7 +118,6 @@ contract PizzaTest is Test {
         vm.startPrank(alice);
 
         sato.approve(address(oven), 100 ether);
-
         oven.bake(100 ether);
 
         vm.stopPrank();
@@ -167,7 +143,6 @@ contract PizzaTest is Test {
 
     function testOnlyOvenCanMint() public {
         vm.expectRevert();
-
         pizza.mint(alice, 1 ether);
     }
 
@@ -203,7 +178,6 @@ contract PizzaTest is Test {
         vm.startPrank(alice);
 
         sato.approve(address(oven), hugeAmount);
-
         oven.bake(hugeAmount);
 
         vm.stopPrank();
