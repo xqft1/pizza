@@ -15,6 +15,7 @@ contract Deploy is Script {
         address deployer = vm.addr(deployerPrivateKey);
         address pizzaAddress = vm.envAddress("PIZZA");
         address lpToken = vm.envAddress("LP_TOKEN");
+        address pizzaSlices = vm.envAddress("PIZZA_SLICES");
 
         uint256 curveScale = 1_000_000 ether;
 
@@ -26,17 +27,21 @@ contract Deploy is Script {
             SATO,
             lpToken,
             address(0x0000000000000000000000000000000000000001),
-            vm.envAddress("PIZZA_SLICES"),
+            pizzaSlices,
             deployer
         );
 
-        LpRewardDistributor distributor = new LpRewardDistributor(
-    SATO, lpToken, address(0x0000000000000000000000000000000000000001), vm.envAddress("PIZZA_SLICES"), deployer
-);
+        PizzaOven oven = new PizzaOven(
+            SATO,
+            pizzaAddress,
+            address(distributor),
+            curveScale,
+            deployer
+        );
+
+        distributor.setOven(address(oven));
 
         pizza.grantRole(pizza.MINTER_ROLE(), address(oven));
-
-        // removes your temporary manual mint permission
         pizza.revokeRole(pizza.MINTER_ROLE(), deployer);
 
         vm.stopBroadcast();
